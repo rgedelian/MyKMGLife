@@ -89,6 +89,10 @@ namespace MyKMGLife
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
+            //// for this site's css
+            //bundles.Add(new StyleBundle("~/Content/kmg-app.css").Include(
+            //          "~/Content/kmg-app-less/kmg-app.css"));
+
             bundles.Add(new ScriptBundle("~/bundles/scripts.js")
                 .Include(
                     "~/Scripts/jquery-{version}.min.js",
@@ -117,6 +121,14 @@ namespace MyKMGLife
                     //"~/Scripts/textAngular/textAngular.min.js",
                     //"~/Scripts/angular-ui-router-title.js"
                     ));
+
+            // for my app's js
+            bundles.Add(new ScriptBundle("~/bundles/kmg-app.js")
+                .IncludeDirectory("~/kmg-app", "*.js", true));
+
+            // for all the html files in the app to be bundled into one file
+            bundles.Add(new HtmlBundleWithAngularWrapper("app", "~/bundles/templateCache.js")
+                .IncludeDirectory("~/kmg-app", "*.html", true));
         }
     }
 }
