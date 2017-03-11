@@ -1,0 +1,19 @@
+<ul class="nav navbar-nav navbar-right">
+    <li ng-show="isAuthenticated()">
+        <div uib-dropdown is-open="vm.isopen">
+            <button id="user-dropdown" type="button" class="btn navbar-btn logout" uib-dropdown-toggle>
+                <i class="fa fa-user"></i> {{currentUser.UserName}}
+            </button>
+            <ul uib-dropdown-menu role="menu" aria-labelledby="user-dropdown">
+                <li role="menuitem"><a href ng-click="logout('/logout')"><i class="fa fa-sign-out"></i> Logout</a></li>
+            </ul>
+        </div>
+    </li>
+    <li ng-hide="isAuthenticated()">
+        <button type="button" class="btn navbar-btn login" ng-click="login()"><i class="fa fa-sign-in"></i> Log In</button>
+    </li>
+    <li><a href ng-click="showHelp()"><i class="fa fa-question"></i><span>Help</span></a></li>
+</ul>
+
+
+

@@ -1,0 +1,213 @@
+﻿<nav class="navbar yamm navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+    <div class="wrap">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ng-class="{ active: vm.$state.is('app') }" ui-sref="app"><img src="../../Images/logo.png" /></a>
+        </div>
+        <form id="navbar" class="collapse navbar-collapse" uib-collapse="!isCollapsed">
+            <ul class="nav navbar-nav">
+                <li uib-dropdown on-toggle="toggled(open)" class="yamm-fw" ng-class="{ active: vm.$state.includes('app.recipe.*') }">
+                    <a href id="recipe-dropdown" uib-dropdown-toggle>
+                        Recipes <span class="caret"></span>
+                    </a>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="recipe-dropdown" class="recipe-dropdown">
+                        <div class="yamm-content">
+                            <div class="admin-list-wrap">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-cog"></i> Manage</h3>
+                                            </div>  
+                                            <div class="card-content">
+                                                <a ui-sref="app.recipe.search" class="btn btn-create btn-block"><i class="fa fa-search"></i> Search Recipes</a>
+                                                <a ui-sref="app.recipe.new" class="btn btn-create btn-block"><i class="fa fa-plus"></i> Add Recipe</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-history"></i> Recent Recipes</h3>
+                                            </div>
+                                            <div class="card-content text-capitalize">
+                                                <div ng-controller="ApplicationUserRecentRecipeController as vm">
+                                                    <ul>
+                                                        <li role="menuitem" ng-repeat="item in vm.models"><a ui-sref="app.recipe.detail({ id: {{item.RecipeID}} })" ui-sref-opts="{reload: true}" ng-bind-html="item.RecipeName"></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.yamm-content -->
+                    </ul><!-- /.admin-dropdown -->
+                </li><!-- /.yamm-fw -->
+                <li uib-dropdown on-toggle="toggled(open)" class="yamm-fw" ng-class="{ active: vm.$state.includes('app.ingredient.*') }">
+                    <a href id="ingredient-dropdown" uib-dropdown-toggle>
+                        Ingredients <span class="caret"></span>
+                    </a>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="ingredient-dropdown" class="ingredient-dropdown">
+                        <div class="yamm-content">
+                            <div class="admin-list-wrap">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-cog"></i> Manage</h3>
+                                            </div>
+                                            <div class="card-content">
+                                                <a ui-sref="app.ingredient.search" class="btn btn-create btn-block"><i class="fa fa-search"></i> Search Ingredients</a>
+                                                <a ui-sref="app.ingredient.new" class="btn btn-create btn-block"><i class="fa fa-plus"></i> Add Ingredient</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-history"></i> Recent Ingredients</h3>
+                                            </div>
+                                            <div class="card-content text-capitalize">
+                                                <div ng-controller="ApplicationUserRecentIngredientController as vm">
+                                                    <ul>
+                                                        <li role="menuitem" ng-repeat="item in vm.models"><a ui-sref="app.ingredient.detail({ id: {{item.IngredientID}} })" ui-sref-opts="{reload: true}" ng-bind-html="item.IngredientName"></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.yamm-content -->
+                    </ul><!-- /.admin-dropdown -->
+                </li><!-- /.yamm-fw -->
+                <li uib-dropdown on-toggle="toggled(open)" class="yamm-fw" ng-class="{ active: vm.$state.includes('app.collection.*') }">
+                    <a href="#" id="collection-dropdown" uib-dropdown-toggle>
+                        Collections <span class="caret"></span>
+                    </a>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="collection-dropdown" class="collections-dropdown">
+                        <div class="yamm-content">
+                            <div class="admin-list-wrap">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-cog"></i> Manage</h3>
+                                            </div>
+                                            <div class="card-content">
+                                                <a ui-sref="app.collection.search" class="btn btn-create btn-block"><i class="fa fa-search"></i> Search Collections</a>
+                                                <a ui-sref="app.collection.new" class="btn btn-create btn-block"><i class="fa fa-plus"></i> Add Collection</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-history"></i> Recent Collections</h3>
+                                            </div>
+                                            <div class="card-content text-capitalize">
+                                                <div ng-controller="ApplicationUserRecentCollectionController as vm">
+                                                    <ul>
+                                                        <li role="menuitem" ng-repeat="item in vm.models"><a ui-sref="app.collection.detail({ id: {{item.CollectionID}} })" ui-sref-opts="{reload: true}" ng-bind-html="item.CollectionName"></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.yamm-content -->
+                    </ul>
+                </li>
+                <li uib-dropdown on-toggle="toggled(open)" class="yamm-fw" ng-class="{ active: vm.$state.includes('app.admin.*') }">
+                    <a href id="admin-dropdown" uib-dropdown-toggle>
+                        Admin <span class="caret"></span>
+                    </a>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="admin-dropdown" class="admin-dropdown">
+                        <div class="yamm-content">
+                            <div class="admin-list-wrap">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-cutlery"></i> Recipe</h3>
+                                            </div>
+                                            <div class="card-content">
+                                                <ul>
+                                                    <li role="menuitem"><a ui-sref="app.admin.oven">Ovens</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.project">Projects</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.recipeTester">Recipe Testers</a></li>
+                                                    <!--<li role="menuitem"><a ui-sref="app.admin.attribute">Attributes</a></li>-->
+                                                    <!--<li role="menuitem"><a ui-sref="app.admin.attributeType">Attribute Types</a></li>-->
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-list-ul"></i> Ingredients</h3>
+                                            </div>
+                                            <div class="card-content">
+                                                <ul>
+                                                    <li role="menuitem"><a ui-sref="app.admin.allergen">Allergens</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.brand">Brands</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.grocerySection">Grocery Sections</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.industryIdentifier">Industry Identifiers</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.ingredientGroup">Ingredient Groups</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.ingredientType">Ingredient Types</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.ingredientParent">Ingredient Parents</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.ingredientRollup">Ingredient Rollups</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.usdaNutrient">USDA Nutrients</a></li>
+                                                    <!--<li role="menuitem"><a ui-sref="app.admin.measureType">Measure Types</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.beefThickness">Beef Thicknesses</a></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="card">
+                                            <div class="card-title">
+                                                <h3><i class="fa fa-users"></i>Admin</h3>
+                                            </div>
+                                            <div class="card-content">
+                                                <ul>
+                                                    <li role="menuitem"><a ui-sref="app.admin.attribution">Attributions</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.objectLock">Object Locks</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.applicationUser">Users</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.mediaGroup">Media Groups</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.recipeMigration">Migrate Recipes &amp; Media</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.recipeDelete">Delete a Recipe</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.ingredientDelete">Delete an Ingredient</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.collectionDelete">Delete a Collection</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.perspective">Perspectives</a></li>
+                                                    <li role="menuitem"><a ui-sref="app.admin.collectionGroup">Collection Groups</a></li>
+                                                    <!--<li role="menuitem"><a href>Team Members</a></li>
+                                                    <li role="menuitem"><a href>Team Member Types</a></li>-->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /.admin-list-wrap -->
+                        </div><!-- /.yamm-content -->
+                    </ul><!-- /.admin-dropdown -->
+                </li><!-- /.yamm-fw -->
+            </ul>
+            <login-toolbar></login-toolbar>
+        </form><!--/.nav-collapse -->
+    </div><!--/.wrap -->        
+    </div><!--/.container-fluid -->
+</nav>

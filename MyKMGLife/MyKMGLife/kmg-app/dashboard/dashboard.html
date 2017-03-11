@@ -1,0 +1,70 @@
+﻿<div class="recipe-header" >
+    <div class="row dashboard">
+        <div class="col-xs-12">
+            <div class="dashboard wrap clearfix">
+                <h1 class="pull-left">Dashboard</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrap">
+    <div class="row">
+        <div class="col-xs-12">            
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-title clearfix">
+                    <span class="pull-right">
+                        <a ui-sref="app.recipe.search" class="btn btn-edit" uib-popover="Search Recipes" popover-trigger="'mouseenter'"><i class="fa fa-search"></i></a>
+                        <a ui-sref="app.recipe.new" class="btn btn-edit" uib-popover="Create a new Recipe" popover-trigger="'mouseenter'"><i class="fa fa-plus"></i></a>
+                    </span>
+                    <h3><i class="fa fa-history"></i> Recent Recipes</h3>
+                </div>
+                <div class="card-content">
+                    <div ng-controller="ApplicationUserRecentRecipeController as vm">
+                        <ul>
+                            <li role="menuitem" ng-repeat="item in vm.models"><a ui-sref="app.recipe.detail({ id: {{item.RecipeID}} })" ui-sref-opts="{reload: true}" ng-bind-html="item.RecipeName"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-title clearfix">
+                    <span class="pull-right">
+                        <a ui-sref="app.ingredient.search" class="btn btn-edit" uib-popover="Search Ingredients" popover-trigger="'mouseenter'"><i class="fa fa-search"></i></a>
+                        <a ui-sref="app.ingredient.new" class="btn btn-edit" uib-popover="Create a new Ingredient" popover-trigger="'mouseenter'"><i class="fa fa-plus"></i></a>
+                    </span>
+                    <h3><i class="fa fa-history"></i> Recent Ingredients</h3>
+                </div>
+                <div class="card-content">
+                    <div ng-controller="ApplicationUserRecentIngredientController as vm">
+                        <ul>
+                            <li role="menuitem" ng-repeat="item in vm.models"><a ui-sref="app.ingredient.detail({ id: {{item.IngredientID}} })" ui-sref-opts="{reload: true}" ng-bind-html="item.IngredientName"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-title clearfix">
+                    <span class="pull-right">
+                        <a ui-sref="app.collection.search" class="btn btn-edit" uib-popover="Search Collections" popover-trigger="'mouseenter'"><i class="fa fa-search"></i></a>
+                        <a ui-sref="app.collection.new" class="btn btn-edit" uib-popover="Create a new Collection" popover-trigger="'mouseenter'"><i class="fa fa-plus"></i></a>
+                    </span>
+                    <h3><i class="fa fa-history"></i> Recent Collections</h3>
+                </div>
+                <div class="card-content">
+                    <div ng-controller="ApplicationUserRecentCollectionController as vm">
+                        <ul>
+                            <li role="menuitem" ng-repeat="item in vm.models"><a ui-sref="app.collection.detail({ id: {{item.CollectionID}} })" ui-sref-opts="{reload: true}" ng-bind-html="item.CollectionName"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

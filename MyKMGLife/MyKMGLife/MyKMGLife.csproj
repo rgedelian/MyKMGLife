@@ -207,7 +207,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SPAController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -257,6 +257,25 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="kmg-app\app.aaaa.js" />
+    <Content Include="kmg-app\app.config.js" />
+    <Content Include="kmg-app\app.constants.js" />
+    <Content Include="kmg-app\app.states.js" />
+    <Content Include="kmg-app\dashboard\dashboard.html" />
+    <Content Include="kmg-app\navbar\navbar.controller.js" />
+    <Content Include="kmg-app\navbar\navbar.html" />
+    <Content Include="kmg-app\security\authorization.js" />
+    <Content Include="kmg-app\security\index.js" />
+    <Content Include="kmg-app\security\interceptor.js" />
+    <Content Include="kmg-app\security\login\login.module.js" />
+    <Content Include="kmg-app\security\login\loginForm.controller.js" />
+    <Content Include="kmg-app\security\login\loginForm.tpl.html" />
+    <Content Include="kmg-app\security\login\toolbar.js" />
+    <Content Include="kmg-app\security\login\toolbar.tpl.html" />
+    <Content Include="kmg-app\security\logout.html" />
+    <Content Include="kmg-app\security\retryQueue.js" />
+    <Content Include="kmg-app\security\security.js" />
+    <Content Include="kmg-app\shared\common\history.service.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
@@ -302,11 +321,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\IndexOld.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="kmg-app\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

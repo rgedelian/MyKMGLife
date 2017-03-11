@@ -1,0 +1,45 @@
+<div class="alert alert-danger" ng-show="authReason === 'Not authorized'">
+    <h3 style="margin:0"><i class="fa fa-shield"></i> Not Authorized</h3>
+    Your account doesn't have sufficient access priviledges to perform this action.
+    Please contact your system administrator if you require further assistance.
+    <div class="form-group" style="margin-top:30px">
+        <button type="button" class="btn btn-primary btn-block" ng-click="$close()">Close</button>
+    </div>
+</div>
+<div draggable=".draggable-area .card-title" class="card draggable-area" ng-show="authReason !== 'Not authorized'">
+    <div class="card-title">
+        <h2><i class="fa fa-key"></i> Sign in</h2>
+    </div>
+    <div class="card-content">
+        <div class="extra-info permission-alert" ng-show="authReason === 'Session expired'">
+            <h3><i class="fa fa-clock-o"></i> Session Expired</h3>
+            <p>Your sign in session has expired. Please enter your credentials to continue.</p>
+        </div>
+        <div class="extra-info permission-alert" ng-show="authError">
+            <h3><i class="fa fa-exclamation-triangle"></i> Login Error</h3>
+            <p>{{authError}}</p>
+        </div>
+        <form ng-submit="form.$valid && login()" name="form" novalidate class="form-signin">
+            <div class="form-group">
+                <label for="login">Username</label>
+                <input class="form-control" id="login" name="login" type="text" ng-model="user.username" required autofocus>
+                <ng-messages for="form.login.$error" ng-if="form.login.$dirty || form.$submitted">
+                    <ng-message when="required" class="error">Required</ng-message>
+                </ng-messages>
+            </div>
+            <div class="form-group">
+                <label for="pass">Password</label>
+                <input class="form-control" id="pass" name="pass" type="password" ng-model="user.password" required>
+                <ng-messages for="form.pass.$error" ng-if="form.pass.$dirty || form.$submitted">
+                    <ng-message when="required" class="error">Required</ng-message>
+                </ng-messages>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block" ng-disabled="actionState.loading">Sign in</button>
+            </div>
+        </form>
+        <spinner name="mySpinner" show="actionState.loading" class="extra-info loading">
+            <i class="fa fa-refresh fa-spin fa-fw"></i> Signing in...
+        </spinner>
+    </div>
+</div>

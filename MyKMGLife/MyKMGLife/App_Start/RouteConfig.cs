@@ -12,11 +12,20 @@ namespace MyKMGLife
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("*.js|css|swf|eot|ttf|woff|woff2|svg|otf");
+            routes.IgnoreRoute("Content/{*pathInfo}");
+            routes.IgnoreRoute("Fonts/{*pathInfo}");
+            routes.IgnoreRoute("Scripts/{*pathInfo}");
+            routes.IgnoreRoute("kmg-app/{*pathInfo}");
 
+            // enables use of attributes to control routes
+            routes.MapMvcAttributeRoutes();
+
+            // Route override for all requests to go to index (for SPA).  this should probably be the last route
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                name: "SPAroute",
+                url: "{*.}",
+                defaults: new { controller = "SPA", action = "Index" }
             );
         }
     }
