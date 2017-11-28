@@ -2,16 +2,40 @@
     var id = ViewContext.RouteData.Values["id"].ToString();
     ViewBag.Title = "Question " + ViewContext.RouteData.Values["id"];
 }
-<h2>@ViewBag.Title</h2>
+<h2>@ViewBag.Title of 15</h2>
 
-<h3>@ViewBag.Message</h3>
 
-@{
+@using (Html.BeginForm("Answer", "Home", FormMethod.Post))
+{
+    <input type="hidden" name="id" value="@id" />
+    
     switch (id)
     {
         case "1":
             <text>
-                <h1>Test Site</h1>
+                <p>Identify the frequency.</p>
+                <p>
+                    <audio controls>
+                        <source src="@Url.Content("~/Content/sound.wav")" type="audio/wav">
+                    </audio>
+                </p>
+                
+                <ul>
+                    <li>
+                        <label><input type="radio" name="ans" value="a" /> 5 Hz</label>
+                    </li>
+                    <li>
+                        <label><input type="radio" name="ans" value="b" /> 50 Hz</label>
+                    </li>
+                    <li>
+                        <label><input type="radio" name="ans" value="c" /> 500 Hz</label>
+                    </li>
+                    <li>
+                        <label><input type="radio" name="ans" value="d" /> 5 KHz</label>
+                    </li>
+                </ul>
+                
+
             </text>
             break;
         case "2":
@@ -90,6 +114,12 @@
             </text>
             break;
     }
+   
+
+
+    <input type="submit" value="Submit Answer" />
 }
+
+
 
 
