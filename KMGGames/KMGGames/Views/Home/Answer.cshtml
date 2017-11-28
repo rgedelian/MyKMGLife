@@ -1,5 +1,31 @@
 ﻿@{
-    ViewBag.Title = "Answer";
+    var id = ViewBag.QuestionNumber.ToString();
+    ViewBag.Title = "Answer " + id;
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title of 15</h2>
+
+@if(ViewBag.Correct == "y")
+{
+    <h3 style="color: green">CORRECT!</h3>
+}
+else
+{
+    <h3 style="color: red">INCORRECT :(</h3>
+    <p>Correct Answer: @ViewBag.Answer</p>
+}
+
+@if (id == "15")
+{
+    using (Html.BeginForm("End", "Home", FormMethod.Get))
+    {
+        <button type="submit">Next Question</button>
+    }
+}
+else
+{
+    using (Html.BeginForm("Quiz", "Home", new { id = int.Parse(id) + 1 }, FormMethod.Get))
+    {
+        <button type="submit">Next Question</button>
+    }
+}
+
