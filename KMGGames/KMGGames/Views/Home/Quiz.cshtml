@@ -1,7 +1,10 @@
 ﻿@{
+    var id = ViewContext.RouteData.Values["id"].ToString();
     ViewBag.Title = "Question " + ViewContext.RouteData.Values["id"];
 }
 <h2>@ViewBag.Title</h2>
+
+<h3>@ViewBag.Message</h3>
 
 @{
     switch (id)
@@ -89,6 +92,4 @@
     }
 }
 
-<h3>@ViewBag.Message</h3>
 
-<p>Use this area to provide additional information.</p>
