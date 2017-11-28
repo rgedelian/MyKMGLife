@@ -214,6 +214,21 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Questions\1.cshtml" />
+    <Content Include="Views\Home\Questions\2.cshtml" />
+    <Content Include="Views\Home\Questions\3.cshtml" />
+    <Content Include="Views\Home\Questions\4.cshtml" />
+    <Content Include="Views\Home\Questions\5.cshtml" />
+    <Content Include="Views\Home\Questions\6.cshtml" />
+    <Content Include="Views\Home\Questions\7.cshtml" />
+    <Content Include="Views\Home\Questions\8.cshtml" />
+    <Content Include="Views\Home\Questions\9.cshtml" />
+    <Content Include="Views\Home\Questions\10.cshtml" />
+    <Content Include="Views\Home\Questions\11.cshtml" />
+    <Content Include="Views\Home\Questions\12.cshtml" />
+    <Content Include="Views\Home\Questions\13.cshtml" />
+    <Content Include="Views\Home\Questions\14.cshtml" />
+    <Content Include="Views\Home\Questions\15.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

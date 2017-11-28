@@ -5,131 +5,16 @@
 
 <div class="container">
 
-
-
     <h2>@ViewBag.Title of 15</h2>
 
 
     @using (Html.BeginForm("Answer", "Home", FormMethod.Post))
     {
         <input type="hidden" name="id" value="@id" />
-
-        switch (id)
-        {
-            case "1":
-                <text>
-                    <p>Identify the frequency.</p>
-                    <p>
-                        <audio controls>
-                            <source src="@Url.Content("~/Content/sound.wav")" type="audio/wav">
-                        </audio>
-                    </p>
-
-                    <ul class="list-unstyled">
-                        <li>
-                            <label><input type="radio" name="ans" value="a"
-                                          data-val="true" data-val-required="This field is required." 
-                                    /> 5 Hz</label>
-                        </li>
-                        <li>
-                            <label><input type="radio" name="ans" value="b"
-                                          data-val="true" data-val-required="This field is required."
-                                    /> 50 Hz</label>
-                        </li>
-                        <li>
-                            <label><input type="radio" name="ans" value="c"
-                                          data-val="true" data-val-required="This field is required."
-                                    /> 500 Hz</label>
-                        </li>
-                        <li>
-                            <label><input type="radio" name="ans" value="d"
-                                          data-val="true" data-val-required="This field is required."
-                                    /> 5 KHz</label>
-                        </li>
-                    </ul>
-
-
-                </text>
-                break;
-            case "2":
-                <text>
-                    <h1>Prod Site</h1>
-                </text>
-                break;
-            case "3":
-                <text>
-                    <h1>Test Site</h1>
-                </text>
-                break;
-            case "4":
-                <text>
-                    <h1>Prod Site</h1>
-                </text>
-                break;
-            case "5":
-                <text>
-                    <h1>Test Site</h1>
-                </text>
-                break;
-            case "6":
-                <text>
-                    <h1>Prod Site</h1>
-                </text>
-                break;
-            case "7":
-                <text>
-                    <h1>Test Site</h1>
-                </text>
-                break;
-            case "8":
-                <text>
-                    <h1>Prod Site</h1>
-                </text>
-                break;
-            case "9":
-                <text>
-                    <h1>Test Site</h1>
-                </text>
-                break;
-            case "10":
-                <text>
-                    <h1>Prod Site</h1>
-                </text>
-                break;
-            case "11":
-                <text>
-                    <h1>Test Site</h1>
-                </text>
-                break;
-            case "12":
-                <text>
-                    <h1>Prod Site</h1>
-                </text>
-                break;
-            case "13":
-                <text>
-                    <h1>Test Site</h1>
-                </text>
-                break;
-            case "14":
-                <text>
-                    <h1>Prod Site</h1>
-                </text>
-                break;
-            case "15":
-                <text>
-                    <h1>Test Site</h1>
-                </text>
-                break;
-            default:
-                <text>
-                    <h1>This Shouldn't Happen</h1>
-                </text>
-                break;
-        }
-
-
-
+        
+        string question = "Questions/" + id;
+        Html.RenderPartial(question);
+        
         <button class="btn btn-default" type="submit" >Submit Answer</button>
 
         <div class="validation-summary-valid" data-valmsg-summary="true">
@@ -138,5 +23,3 @@
     }
 
 </div>
-
-
